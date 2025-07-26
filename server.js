@@ -4,6 +4,7 @@ import cors from "cors";
 import connectDB from "./config/dbConnection.js";
 import authRoutes from './routes/authRoute.js';
 import cookieParser from "cookie-parser";
+import adminRoutes from "./routes/adminRoutes.js";
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.get('/', (req, res) =>{
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/admin', adminRoutes);
 
 const PORT = process.env.PORT || 3000;
 

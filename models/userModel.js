@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { CONFIG } from '../config/globalAppConstants.js';
 
 const userSchema = new mongoose.Schema({
     firstname:{
@@ -27,6 +28,11 @@ const userSchema = new mongoose.Schema({
     },
     resetTokenExpiry: {
         type: Date
+    },
+    role:{
+        type: String,
+        enum: CONFIG.VALID_ROLES,
+        default: CONFIG.DEFAULT_ROLE
     }
 },
 {
